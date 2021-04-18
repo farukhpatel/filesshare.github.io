@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Sharing</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous" />
+
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <section class="upload-container">
+        <div class="drop-zone">
+            <div class="icon-container">
+
+                <img src="../img/icon.png" width="100%" height="250px" alt="image currupted">
+                <% if(locals.error) {%>
+                    <h4>
+                        <%= locals.error %>
+                    </h4>
+                    <%}else{ %>
+                        <h2>Your file is ready to download</h2>
+                        <h1>Download here</span></h1>
+                        <div>
+                            <a href="<%= download %>">download file</a>
+                        </div>
+                        <% }%>
+
+
+            </div>
+        </div>
+    </section>
+
+</body>
+
+</html>
