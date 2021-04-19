@@ -10,7 +10,7 @@ require('./config/db');
 const multer = require('multer');
 const File = require('./modal/files');
 console.log(File);
-const host=process.env.APP_BASE_URL || "https://file-share-project.herokuapp.com/"  ;
+const host=process.env.APP_BASE_URL || "http://localhost:4000"  ;
 const { v4: uuid4 } = require('uuid');
 const { ServerResponse } = require('http');
 console.log(uuid4());
