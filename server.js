@@ -10,6 +10,7 @@ require('./config/db');
 const multer = require('multer');
 const File = require('./modal/files');
 console.log(File);
+const host=process.env.APP_BASE_URL || "https://file-share-project.herokuapp.com/"  ;
 const { v4: uuid4 } = require('uuid');
 const { ServerResponse } = require('http');
 console.log(uuid4());
@@ -45,7 +46,7 @@ app.get("/download/:uuid", async (req, res) => {
                 filename: file.filename,
                 fileSize: file.size,
                 path: file.path,
-                download: `${process.env.APP_BASE_URL}/ready/${file.uuid}`
+                download: `${host}/ready/${file.uuid}`
             })
         }
     }
@@ -81,9 +82,9 @@ app.post("/upload", (req, res) => {
                 const response = await file.save();
                 console.log(response.uuid);
                 console.log("before response");
-                const url = `${process.env.APP_BASE_URL} / download / ${response.uuid}`;
-                console.log(`${process.env.APP_BASE_URL} / download / ${response.uuid}`);
-                return res.json({ file: `${process.env.APP_BASE_URL}/download/${response.uuid}` });
+                const url = `${host} / download / ${response.uuid}`;
+                console.log(`${host} / download / ${response.uuid}`);
+                return res.json({ file: `${host}/download/${response.uuid}` });
             }
 
         } catch (error) {
