@@ -69,7 +69,7 @@
             const file = fileInput.files[0];
             const fm = new FormData();
             fm.append("myfile", file);
-            fetch("http://localhost:4000/upload", {
+            fetch("/upload", {
                 method: "post",
                 body: fm,
             }).then(response => response.json()).then((data) => {
